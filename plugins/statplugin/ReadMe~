@@ -1,0 +1,32 @@
+This is the readme for Statistics plugin for gphpedit
+gphpedit must be installed in your program for the plugin to work
+The file must be saved for the plugin to work and the last saved version of the file will be used
+
+
+Installing the plugin
+---------------------
+
+If you want the plugin to be global place the statplugin file in /usr/share/gphpedit/plugin 
+and the statconf and statmodule file in /usr/share/gphpedit/conf after makinf directory conf
+
+If you want the plugin to be local place the statconfig file in ~/.gphpedit/plugin 
+and the statconf and statmodule file in ~/.gphpedit/conf after making directory conf
+
+
+Information on the plugin
+--------------------------
+
+Plugin name 	: Status
+Plugin Author	: Vipin S <svipinsaj@gmail.com>
+Plugin version	: 1
+Plugin language : python
+
+
+The plugin is made to count the number of lines, words and characters in a file written in either
+			*php
+			*c
+			*cpp
+			*html
+			*python
+
+The plugin is free and may not be supported in the future
