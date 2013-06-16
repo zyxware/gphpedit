@@ -1,5 +1,11 @@
 #! /usr/bin/python
 
+
+# This is the main program for the drupal api plugin for gphpedit. This plugin takes in a selection as an arguement and
+# it either returns a message or opens a browser window of the drupal api page depending or whether the entered
+# keyword is a drupal function or not. The installation process of this plugin is given in the ReadMe distributed along with the plugin
+
+
 import re
 import os
 import sys
@@ -26,6 +32,7 @@ elif sys.argv[1].strip()=="-type":
 else:
 	selection=sys.argv[1]
 	selection=re.sub("[(].*","",selection)
+	selection=re.sub("&","",selection)
 	version=6
 	if not selection:
 		print "MESSAGE\nNothing was entered for plugin to run\n"
