@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=0.9.98
-_Name=gPHPEdit
-_GenericName=PHP/HTML/CSS editor
-_X-GNOME-FullName=gPHPEdit
-_Comment=Edit PHP source files
+Name=gPHPEdit
+GenericName=PHP/HTML/CSS editor
+X-GNOME-FullName=gPHPEdit
+Comment=Edit PHP source files
 Exec=gphpedit
 Icon=gphpedit.png
 Terminal=false

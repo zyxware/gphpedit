@@ -1,0 +1,30 @@
+This is the readme for Drupal API search plugin for gphpedit
+gphpedit must be installed in your program for the plugin to work
+
+
+Installing the plugin
+---------------------
+
+The files 6hook.txt 7hook.txt 6func.txt 7func are files which contain information critical to the plugin
+and shall be referenced as background files henceforth
+
+If you want the plugin to be global place the apidrupal file in /usr/share/gphpedit/plugin 
+and the background files in /usr/share/gphpedit/conf after makinf directory conf
+
+If you want the plugin to be local place the apidrupal file in ~/.gphpedit/plugin 
+and the background files in ~/.gphpedit/conf after making directory conf
+
+
+Information on the plugin
+--------------------------
+
+Plugin name 	: API Drupal search
+Plugin Author	: Vipin S <svipinsaj@gmail.com>
+Plugin version	: 1.2
+Plugin language : python
+
+
+The plugin is made to help developers using drupal. After selecting a function name, once you click the 
+plugin, the plugin will open the drupal api page of the function
+
+This plugin is free and may not be supported in the future
