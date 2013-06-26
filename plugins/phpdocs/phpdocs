@@ -1,0 +1,60 @@
+#! /usr/bin/python
+
+# This is the main program for the php docs plugin for gphpedit. This plugin takes in a selection as an arguement and
+# it either returns a message or opens a browser window of the php docs page depending or whether the entered
+# keyword is a php function or not. The installation process of this plugin is given in the ReadMe distributed along with the plugin
+
+
+import re
+import os
+import sys
+import webbrowser
+
+
+
+if sys.argv[1].strip()=='-name':
+	print "php function search"
+elif sys.argv[1].strip()=="-desc":
+	print "Plugin to show the php function docs selection" 
+elif sys.argv[1].strip()=="-icon":
+	print "./../test.png"	
+elif sys.argv[1].strip()=="-copyright":
+	print "GPL3"
+elif sys.argv[1].strip()=="-website":
+	print "http://www.gphpedit.com"
+elif sys.argv[1].strip()=="-version":
+	print "1.1"
+elif sys.argv[1].strip()=="-authors":
+	print"Vipin"
+elif sys.argv[1].strip()=="-type":
+	print "SELECTION"
+else:
+	selection=sys.argv[1]
+	selection=re.sub("[(].*","",selection)
+	selection=re.sub("&","",selection)
+	if not selection:
+		print "MESSAGE\nNothing was entered for plugin to run\n"
+		exit()
+	filename='funclist.txt'
+	path='./'	
+	if filename in os.listdir(os.getcwd()):
+		pass
+	elif filename in os.listdir('/usr/share/gphpedit/conf'):
+		path='/usr/share/gphpedit/conf/'
+	elif filename in os.listdir('~/.gphpedit/conf'):
+		path='~/.gphpedit/conf/'
+	else:
+		print "MESSAGE\nCannot find supplementary files\n"
+		exit()
+	fp=open(path+filename,"r")
+	status=0
+	search=''
+	for f in fp:
+		if re.search(selection.strip(),f):
+			status=1	
+			search=selection.strip()
+	if status:
+		search=re.sub('_','-',search)
+		webbrowser.open("http://www.php.net/manual/en/function."+search+".php")
+	else:
+		print "MESSAGE\nEntered keyword not a php function\n"	

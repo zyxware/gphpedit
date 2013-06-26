@@ -1,0 +1,27 @@
+This is the readme for php function search plugin for gphpedit
+gphpedit must be installed in your program for the plugin to work
+
+
+Installing the plugin
+---------------------
+
+If you want the plugin to be global place the apidrupal file in /usr/share/gphpedit/plugin 
+and the funclist.txt file in /usr/share/gphpedit/conf after makinf directory conf if it doesn't exist
+
+If you want the plugin to be local place the apidrupal file in ~/.gphpedit/plugin 
+and the funclist.txt file in ~/.gphpedit/conf after making directory conf if it doesn't exist
+
+
+Information on the plugin
+--------------------------
+
+Plugin name 	: php function search
+Plugin Author	: Vipin S <svipinsaj@gmail.com>
+Plugin version	: 1.0
+Plugin language : python
+
+
+The plugin is made to help php users. After selecting a function name, once you click the 
+plugin, the plugin will open the drupal api page of the function
+
+This plugin is free and may not be supported in the future

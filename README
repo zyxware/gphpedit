@@ -33,6 +33,9 @@ Installation of gPHPEdit: (UBUNTU AND DEBIAN USERS)
 	prefix is consistent with the installation environment and the package 
 	will be installed in the correct location.
 
+	To create gnome menu entry run the above code as
+	$ ./autogen.sh --prefix=/usr && make
+
   --enable-debug=yes 
   Setting this flag enable the debug support, disabled by default.
 
@@ -49,8 +52,8 @@ prefix lib, e.g. libgtk2.0-dev)
 	     - intltool
 	     - libtool
 	     - gettext
-	     - gvfs
-	     - webkit-1.0
+	     - gvfs	
+	     - webkit-1.0 (renamed as libwebkitgtk-1.0-0 and libwebkitgtk-dev)
 	     - php5-cli (optional for php sintax checking)
 	     - php-doc (optional for php help support) *
    * if you don't have php-doc pakage installed gphpedit will search help in PHP online resources.

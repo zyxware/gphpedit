@@ -1,0 +1,82 @@
+#! /usr/bin/python
+
+
+# This is the main program for the drupal api plugin for gphpedit. This plugin takes in a selection as an arguement and
+# it either returns a message or opens a browser window of the drupal api page depending or whether the entered
+# keyword is a drupal function or not. The installation process of this plugin is given in the ReadMe distributed along with the plugin
+
+
+import re
+import os
+import sys
+import webbrowser
+
+
+
+if sys.argv[1].strip()=='-name':
+	print "Drupal function search"
+elif sys.argv[1].strip()=="-desc":
+	print "Plugin to show the drupal api of selection" 
+elif sys.argv[1].strip()=="-icon":
+	print "../test.png"	
+elif sys.argv[1].strip()=="-copyright":
+	print "GPL3"
+elif sys.argv[1].strip()=="-website":
+	print "http://www.gphpedit.com"
+elif sys.argv[1].strip()=="-version":
+	print "1.1"
+elif sys.argv[1].strip()=="-authors":
+	print"Vipin"
+elif sys.argv[1].strip()=="-type":
+	print "SELECTION"
+else:
+	selection=sys.argv[1]
+	selection=re.sub("[(].*","",selection)
+	selection=re.sub("&","",selection)
+	version=6
+	if not selection:
+		print "MESSAGE\nNothing was entered for plugin to run\n"
+		exit()
+	for root,dirs,files in os.walk('/var'):
+		for r in root:
+			for f in files:
+				if f=='CHANGELOG.TXT':
+					fp=open(r+'/'+f,"r")
+					temp=fp.readline()
+					if '7' in temp:
+						version=7
+						f.close()
+						break
+					temp=f.readline()
+					f.close()
+					if '7' in temp:
+						version=7
+						break
+	path='./'
+	filename=str(version)+'func.txt'
+	hookname=str(version)+'hook.txt'			
+	if filename in os.listdir(os.getcwd()):
+		pass
+	elif filename in os.listdir('/usr/share/gphpedit/conf'):
+		path='/usr/share/gphpedit/conf/'
+	elif filename in os.listdir('~/.gphpedit/conf'):
+		path='~/.gphpedit/conf/'
+	else:
+		print "MESSAGE\nCannot find supplementary files\n"
+		exit()
+	fp=open(path+filename,"r")
+	fh=open(path+hookname,"r")
+	status=0
+	search=''
+	for f in fp:
+		if re.search(selection.strip(),f):
+			status=1	
+			search=selection.strip()
+	for fi in fh:
+		if re.search(fi[0:-1],selection.strip()):
+			status=1
+			search="hook"+fi
+	if status:
+		webbrowser.open("https://api.drupal.org/api/drupal/"+str(version)+"/search/"+search)
+	else:
+		print "MESSAGE\nEntered keyword not a DRUPAL function\n"	
