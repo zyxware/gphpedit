@@ -1,0 +1,52 @@
+#! /usr/bin/python
+
+
+# This is the main module for the drupalconv plugin
+# For instructons on install, read ReadMe distributed along with the plugin
+
+
+import sys
+import os
+import files
+
+
+if sys.argv[1].strip()=='-name':
+	print "Drupal coding standerdiser"
+elif sys.argv[1].strip()=="-desc":
+	print "Plugin to convert the php code to be compliant with drupal coding standerds" 
+elif sys.argv[1].strip()=="-icon":
+	print "../test.png"	
+elif sys.argv[1].strip()=="-copyright":
+	print "GPL3"
+elif sys.argv[1].strip()=="-website":
+	print "http://www.gphpedit.com"
+elif sys.argv[1].strip()=="-version":
+	print "1.1"
+elif sys.argv[1].strip()=="-authors":
+	print"Vipin"
+elif sys.argv[1].strip()=="-type":
+	print "FNAME"
+else:
+	try:
+		f=open(sys.argv[1],"r")
+	except IOError:
+		print "MESSAGE\nFatal Error\n"
+		exit()
+	
+	path="./code-style.pl"
+	opredir="./test.txt"
+	stat=1
+	i=2
+	while stat  i:
+		os.system("perl "+path+" "+sys.argv[1]+" > "+opredir)
+		of=open(opredir,"r")
+		output=of.readlines()
+		i-=1
+		if not output:
+			print "MESSAGE\nGiven file adhere to drupal coding standards\n"
+			exit()
+		else:
+			output,stat=files.check(sys.argv[1],opredir)
+	print output
+	f.close()		
+

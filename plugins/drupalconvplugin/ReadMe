@@ -1,0 +1,34 @@
+This is the readme for Drupal coding standerdiser plugin for gphpedit
+gphpedit must be installed in your program for the plugin to work
+
+
+Installing the plugin
+---------------------
+
+If you want the plugin to be global place the drupalconv file in /usr/share/gphpedit/plugin 
+and the files.py and code-style.pl files in /usr/share/gphpedit/conf after makinf directory conf
+
+If you want the plugin to be local place the drupalconv file in ~/.gphpedit/plugin 
+and the files.py and code-style.pl files in ~/.gphpedit/conf after making directory conf
+
+
+Information on the plugin
+--------------------------
+
+Plugin name 	: Drupal coding Standerdiser
+Plugin Author	: Vipin S <svipinsaj@gmail.com>
+Plugin version	: 1.1
+
+The plugin is made to convert a code written in php compliant with drupal-coding standards.
+
+It leaves correct spaces for operators and says if there exists any function names not compliant with drupal
+
+It does not act as a syntax checker.
+
+Known problems: The intendation may not be correct if more than one opeing or closing braces are there in a line.
+				May cause errors if barces in comments
+
+The code-style.pl file is taken from the drupal 6 distribution.
+
+
+The plugin is free and may not be supported in the future
